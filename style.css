@@ -1,0 +1,1215 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #3498db;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+/* Header Styles */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.logo span {
+    color: #2c3e50 !important;
+    transition: none !important;
+}
+
+.logo span:hover {
+    color: #2c3e50 !important;
+}
+
+* 로고 링크 밑줄 제거 */
+.logo a {
+  text-decoration: none; /* 기본 밑줄 제거 */
+  color: inherit;        /* 글자색은 부모 요소 따라감 */
+}
+
+.logo a:hover {
+  text-decoration: none; /* hover 시에도 밑줄 제거 */
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+nav a {
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover, nav a.active {
+    color: #3498db;
+    text-decoration: none;
+}
+
+/*
+ * 카드 섹션 공통 스타일
+ */
+.deep-dive-card {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    font-family: Arial, sans-serif;
+}
+.deep-dive-card .card-content {
+    color: #333;
+}
+.deep-dive-card h2 {
+    font-size: 28px;
+    color: #007bff;
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: bold;
+}
+.deep-dive-card h3 {
+    font-size: 22px;
+    color: #444;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #007bff;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+.deep-dive-card p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+.deep-dive-card ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.deep-dive-card ul li {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+.deep-dive-card ul li::before {
+    content: "✓";
+    color: #007bff;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+.deep-dive-card strong {
+    color: #000;
+}
+
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.mobile-menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Hero Section */
+.hero {
+    background-color: #3498db;
+    color: #fff;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    background-color: #fff;
+    color: #3498db;
+    padding: 12px 30px;
+    font-size: 18px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #fff;
+}
+
+.cta-button:hover {
+    background-color: #f8f9fa;
+    color: #2980b9;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Tools Section */
+.tools {
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+.tools h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    color: #2c3e50;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.tool-card {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e9ecef;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.tool-icon {
+    margin-bottom: 20px;
+    font-size: 3rem;
+}
+
+.tool-card h3 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.tool-card p {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.tool-link {
+    color: #3498db;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.tool-link:hover {
+    color: #2980b9;
+    text-decoration: none;
+}
+
+/* Features Section */
+.features {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.features h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    color: #2c3e50;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.feature {
+    text-align: center;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.feature h3 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+/* Tool Page Styles */
+.tool-page {
+    padding: 60px 0;
+}
+
+.tool-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.tool-header h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.tool-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.tool-description h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    margin-top: 30px;
+}
+
+.tool-description h2:first-child {
+    margin-top: 0;
+}
+
+.tool-description ol {
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+.tool-description li {
+    margin-bottom: 10px;
+}
+
+.tool-interface {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.upload-area {
+    border: 2px dashed #3498db;
+    border-radius: 10px;
+    padding: 40px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.upload-area:hover {
+    background-color: #f8f9fa;
+}
+
+.upload-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.upload-area h3 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.upload-area p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.upload-btn {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 5px;
+}
+
+.upload-btn:hover {
+    background-color: #2980b9;
+}
+
+.metadata-editor h3 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #555;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.reset-btn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.reset-btn:hover {
+    background-color: #c0392b;
+}
+
+.download-btn {
+    background-color: #27ae60;
+    color: white;
+}
+
+.download-btn:hover {
+    background-color: #229954;
+}
+
+/* Contact Page Styles */
+.contact-page {
+    padding: 60px 0;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.contact-header h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.contact-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.contact-card h3 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.email-btn {
+    background-color: #3498db;
+    color: white;
+    margin-top: 15px;
+}
+
+.email-btn:hover {
+    background-color: #2980b9;
+}
+
+.email-address {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.contact-form {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.contact-form h3 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.submit-btn {
+    background-color: #3498db;
+    color: white;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Policy Pages */
+.policy-page {
+    padding: 60px 0;
+}
+
+.policy-content {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.policy-content h1 {
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+.policy-content h2 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.policy-content p {
+    margin-bottom: 15px;
+}
+
+/* About Page Styles - Card Layout */
+.about-page {
+    padding: 60px 0;
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.about-header h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.about-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-section {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+
+.about-section h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.about-section p {
+    margin-bottom: 15px;
+    line-height: 1.8;
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Card Container */
+.card-container {
+    max-width: 900px;
+    margin: 30px auto 0;
+}
+
+/* Tool Cards */
+.tools-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+.tool-card {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e9ecef;
+    height: 100%;
+    width: 100%;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.tool-card .tool-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.tool-card h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.tool-card p {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+/* Feature Cards */
+.features-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+.feature-card {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    width: 100%;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(52, 152, 219, 0.3);
+}
+
+.feature-card .feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.feature-card p {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+/* Roadmap Cards */
+.roadmap-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+.roadmap-card {
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    border-left: 4px solid #27ae60;
+    transition: transform 0.3s ease;
+    width: 100%;
+}
+
+.roadmap-card:hover {
+    transform: translateY(-3px);
+}
+
+.roadmap-card h3 {
+    color: #27ae60;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.roadmap-card p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* Special Sections */
+.intro-section {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+}
+
+.intro-section h2,
+.intro-section p {
+    color: white;
+    text-align: center;
+}
+
+.contact-section {
+    text-align: center;
+}
+
+.contact-section .cta-button {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #3498db;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.contact-section .cta-button:hover {
+    background-color: #2980b9;
+    text-decoration: none;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 50px 0 30px;
+}
+
+/* 메인 레이아웃: 왼쪽/오른쪽 + 왼쪽 아래에 소셜 */
+.footer-main {
+  display: grid;
+  grid-template-columns: minmax(260px, 350px) 1fr; /* 왼쪽 고정폭(260~350), 오른쪽 가변 */
+  gap: 40px;
+  align-items: start;
+  margin-bottom: 40px;
+  grid-template-areas:
+    "left right"
+    "social right";
+}
+
+/* 그리드 영역 매핑 */
+.footer-left  { grid-area: left; }
+.footer-right { grid-area: right; }
+.social-icons { grid-area: social; }
+
+.footer-left {
+    flex: 1;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Changed from center to flex-start */
+}
+
+.footer-logo { font-size: inherit !important; }
+.footer-logo h2 {
+     margin: 0;
+  font-size: 18px;   /* 필요시 16~20px 사이로 조정 */
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.footer-logo img {
+    height: 45px;
+}
+
+.site-description {
+    color: #bdc3c7;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    text-align: left; /* Changed from center to left */
+}
+
+/* 소셜 아이콘 컨테이너 */
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+  align-self: flex-start;
+}
+
+/* a 태그와 .social-icon 둘 다 스타일 적용 */
+.social-icons a,
+.social-icon {
+  font-size: 1.5rem;
+  color: #bdc3c7;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.social-icons a:hover,
+.social-icon:hover {
+  color: #3498db;
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+.footer-right {
+    flex: 2;
+}
+
+.footer-menu {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 180px;
+}
+
+.footer-column h3 {
+    color: #ecf0f1;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-column h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 35px;
+    height: 2px;
+    background-color: #3498db;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+
+.footer-column ul li a {
+    color: #bdc3c7;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.footer-column ul li a:hover {
+    color: #3498db;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 25px;
+    border-top: 1px solid #34495e;
+}
+
+.copyright {
+    color: #95a5a6;
+    font-size: 0.9rem;
+}
+
+/* Responsive Footer */
+@media (max-width: 1024px) {
+    @media (min-width: 769px) and (max-width: 1024px) {
+  .footer-main {
+    grid-template-columns: minmax(240px, 1fr) 1fr;
+    grid-template-areas:
+      "left right"
+      "social right";
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+}
+    
+    .footer-left {
+        max-width: 100%;
+        margin-bottom: 30px;
+        align-items: flex-start; /* Changed from center to flex-start */
+    }
+    
+    .site-description {
+        text-align: left; /* Changed from center to left */
+    }
+    
+    .social-icons {
+        justify-content: flex-start; /* Changed from center to flex-start */
+    }
+    
+    .footer-right {
+        width: 100%;
+    }
+    
+    .footer-menu {
+        justify-content: flex-start; /* Changed from center to flex-start */
+        flex-wrap: wrap;
+    }
+    
+    .footer-column {
+        min-width: 200px;
+        margin-right: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    footer {
+        padding: 40px 0 20px;
+    }
+    
+    .footer-main {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "left"
+      "social"
+      "right";
+        gap: 30px;
+        margin-bottom: 30px;
+    display: grid;
+    }
+    
+    .footer-menu {
+        gap: 20px;
+    }
+    
+    .footer-bottom {
+        padding-top: 20px;
+    }
+}
+
+/* 데스크탑 전용(>=769px): 왼쪽/오른쪽 + 왼쪽 아래 소셜 + 오른쪽 3열 */
+@media (min-width: 769px) {
+  /* 컨테이너가 .footer-main이든 .footer-container든 모두 커버 */
+  footer :is(.footer-main, .footer-container) {
+    display: grid !important;
+    grid-template-columns:340px 1fr;
+    gap: 32px;
+    margin: 0 auto;                   /* 중앙 배치 */
+    max-width: 1100px;                /* 전체 폭 제한(원하시면 1000~1200px로 조정) */
+    align-items: start;
+    grid-template-areas:
+      "left right"
+      "social right";
+  }
+
+  /* 영역 매핑(그리드 아이템) */
+  footer .footer-left   { grid-area: left !important; }
+  footer .social-icons  { grid-area: social !important; }
+  footer .footer-right  { grid-area: right !important; }
+
+  /* 오른쪽 영역: Our Tools / Company / Support 3열, 중앙 정렬 느낌으로 */
+  footer .footer-right {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(160px, 1fr)); /* 칼럼 폭 조금 좁힘 */
+    column-gap: 24px;                                     /* 간격 축소 */
+    row-gap: 8px;
+    justify-content: center;  /* 여유 공간이 생기면 가운데로 모으기 */
+    align-items: start;
+    max-width: 760px;         /* 너무 좌우로 벌어지지 않도록 폭 제한 */
+    margin-left: auto;        /* 오른쪽 영역도 중앙에 가깝게 */
+    margin-right: auto;
+  }
+ 
+/* 로고+도메인 가로 정렬(설명은 그 아래) */
+  footer .footer-logo {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+  footer .footer-logo h2 {
+    margin: 0;
+    font-size: 18px;          /* 크기 축소 */
+    line-height: 1.2;
+    white-space: nowrap;      /* 줄바꿈 방지 → 로고 옆에 붙게 */
+    font-weight: 700;
+  }
+
+  /* 왼쪽 문단(설명)과의 간격 약간만 */
+  footer .footer-left p { margin-top: 8px; }
+}
+
+  /* .footer-right 안에 .footer-menu 래퍼가 또 있는 경우를 대비 */
+  footer .footer-right .footer-menu {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(180px, 1fr));
+    gap: 30px;
+    align-items: start;
+  }
+}
+
+/* 푸터 소셜 아이콘에 개별 색상 적용 */
+.social-icons a.facebook {
+    color: #1877f2; /* 페이스북 고유 색상 */
+}
+
+.social-icons a.twitter {
+    color: #1da1f2; /* 트위터 고유 색상 */
+}
+
+.social-icons a.linkedin {
+    color: #0a66c2; /* 링크드인 고유 색상 */
+}
+
+.social-icons a.instagram {
+    color: #e4405f; /* 인스타그램 고유 색상 */
+}
+
+/* 마우스를 올렸을 때 색상 변경 방지 (선택 사항) */
+.social-icons a:hover {
+    text-decoration: none;
+}
+/* =========================
+   Mobile Navigation Styles
+   ========================= */
+nav ul {
+  display: flex; /* 기본: 데스크탑에서 항상 보임 */
+  gap: 20px;
+}
+
+.mobile-menu-toggle {
+  display: none; /* 기본은 숨김 */
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.mobile-menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 1.0px 0;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    display: none; /* 모바일에서는 기본 숨김 */
+    flex-direction: column;
+    position: absolute;
+    top: 80px;   /* 헤더 아래 위치 */
+    right: 15px; /* 살짝 여백 */
+    width: 220px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    padding: 15px 0;
+    z-index: 1000;
+  }
+
+  nav ul.active {
+    display: flex; /* 햄버거 버튼 눌렀을 때 표시 */
+  }
+
+  nav ul li {
+    margin: 10px 0;
+    padding: 0 20px;
+    text-align: left;
+  }
+
+  .mobile-menu-toggle {
+    display: flex; /* 모바일에서 햄버거 버튼 보임 */
+  }
+}
+/* 기능 설명글 + 컨텐츠 박스 레이아웃 반응형 */
+@media (max-width: 768px) {
+  .tools-grid,
+  .features-grid {
+    display: flex;
+    flex-direction: column;   /* 세로 배치 */
+    gap: 20px;               /* 위아래 간격 */
+  }
+
+  .tool-card,
+  .feature {
+    width: 100%;             /* 한 줄 전체 차지 */
+  }
+}
+/* ========== 강제 모바일: 툴 / 기능 섹션을 세로 1열로 만들기 ========== */
+@media (max-width: 768px) {
+  /* 컨테이너들이 grid 또는 flex 어느 것이든 1열로 동작하도록 강제 */
+  .tools-grid,
+  .features-grid,
+  .deep-dive,          /* 혹시 사용하는 섹션 클래스들 추가 */
+  .tool-section,
+  .content-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    align-items: stretch !important;
+  }
+
+  /* 각 카드/항목을 전체 폭으로 */
+  .tool-card,
+  .feature,
+  .deep-dive-card,
+  .description,
+  .tool-content,
+  .feature-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    float: none !important;
+    clear: both !important;
+    box-sizing: border-box !important;
+  }
+
+  /* grid 쓸 경우 컬럼 강제 1열 */
+  .tools-grid,
+  .features-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* 내부 이미지/아이콘이 넘치면 정리 */
+  .tool-card img,
+  .tool-card .tool-icon,
+  .feature img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* '본문 설명 → 그 밑에 기능' 순서 보장 (사용중인 클래스명에 맞게 동작) */
+  .description, .feature-description, .tool-description, .tool-info { order: 0 !important; }
+  .tool-content, .feature-content { order: 1 !important; }
+
+  /* (선택) 카드 안의 가로 정렬 요소가 있을 경우 강제 세로 정렬 */
+  .tool-card > * { width: 100% !important; display: block !important; }
+}
+
+/* ========== (디버깅용 — 적용 확인 후 주석/삭제하세요) ========== */
+/*
+@media (max-width: 768px) {
+  .tool-card, .feature, .description, .tool-content {
+    outline: 1px dashed rgba(0,0,0,0.12);
+  }
+}
+*/
+/* ===== 모바일에서 tool-content 한 줄로 정렬 ===== */
+@media (max-width: 768px) {
+  .tool-content {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px !important;
+  }
+
+  .tool-description,
+  .tool-interface {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
