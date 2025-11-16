@@ -382,6 +382,22 @@ nav a:hover, nav a.active {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
+/* ===== PDF Viewer Styles ===== */
+.pdf-viewer-container {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-width: 800px;
+    overflow: auto;
+}
+
+#pdfViewerCanvas {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
+}
+
 .upload-area {
     border: 2px dashed #3498db;
     border-radius: 10px;
@@ -1213,4 +1229,3 @@ nav ul {
     max-width: 100% !important;
   }
 }
-
