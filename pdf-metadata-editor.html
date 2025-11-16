@@ -1,203 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-57524D22');</script>
+<!-- Google Tag Manager (GTM) -->
+<script>
+(function(w,d,s,l,i){
+  w[l]=w[l]||[];
+  w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+  var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
+  j.async=true;
+  j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+  f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-57524D22');
+</script>
 <!-- End Google Tag Manager -->
 
+<!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6237171158673362"
      crossorigin="anonymous"></script>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Edit and manage PDF metadata effortlessly with Dokit.online's PDF Metadata Editor. Update titles, authors, and more securely online.">
+<!-- Google Analytics 4 (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYPBL7M247"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-<title>PDF Metadata Editor - dokit.online</title>
-<link rel="stylesheet" href="style.css">
-<link rel="icon" href="images/logo.png" type="image/png">
+  // GA4 설정
+  gtag('config', 'G-GYPBL7M247');
+</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online PDF metadata editor. Edit title, author, keywords, and document properties quickly.">
+
+    <title>PDF Metadata Editor - dokit.online</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/logo.png" type="image/png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.18.0/pdf-lib.min.js"></script>
 
-<style>
-/* deep-dive-card 카드형 스타일 */
-.tool-card {
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-  padding: 25px;
-  margin: 30px 0;
-}
-
-.tool-card h2 {
-  margin-top: 0;
-  font-size: 24px;
-  color: #333;
-}
-
-.tool-card .info-item {
-  margin-bottom: 20px;
-}
-
-.tool-card .info-item h3 {
-  font-size: 18px;
-  margin-bottom: 8px;
-  cursor: pointer;
-}
-
-.tool-card .info-item p, 
-.tool-card .info-item ul {
-  margin-left: 15px;
-  font-size: 14px;
-  color: #555;
-}
-
-.tool-card .info-item ul li {
-  margin-bottom: 6px;
-}
-</style>
 </head>
 <body>
-<header>
-    <div class="container">
-        <div class="logo">
-           <a href="index.html">
-            <img src="images/logo.png" alt="dokit.online logo">
-            <span>dokit.online</span></a> 
+    <header>
+        <div class="container">
+            <div class="logo">
+               <a href="index.html">
+                <img src="images/logo.png" alt="dokit.online logo">
+                <span>dokit.online</span></a> 
+
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="pdf-metadata-editor.html" class="active">Metadata Editor</a></li>
+                    <li><a href="pdf-merge-divide.html">Merge/Divide</a></li>
+                    <li><a href="pdf-compression.html">Compression</a></li>
+                    <li><a href="pdf-image-conversion.html">Image Conversion</a></li>
+                    <li><a href="pdf-security.html">Security</a></li>
+                    <li><a href="pdf-viewer.html">Viewer</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-        <nav>
+    </header>
+
+    <main>
+        <section class="tool-page">
+            <div class="container">
+                <div class="tool-header">
+                    <h1>PDF Metadata Editor</h1>
+                    <p>Edit PDF properties, author information, and document details with our easy-to-use tool</p>
+                </div>
+
+                <div class="tool-content">
+                    <div class="tool-description">
+                        <h2>What is PDF Metadata?</h2>
+                        <p>PDF metadata contains information about the document such as title, author, subject, keywords, and creation date. Editing metadata helps with document organization, searchability, and copyright information.</p>
+                        
+                        <h2>How to Use This Tool</h2>
+                        <ol>
+                            <li>Upload your PDF file using the button below</li>
+                            <li>View and edit the existing metadata fields</li>
+                            <li>Add or modify title, author, subject, keywords, etc.</li>
+                            <li>Click "Download" to save your updated PDF</li>
+                        </ol>
+                    </div>
+
+                    <div class="tool-interface">
+                        <div class="upload-area" id="uploadArea">
+                            <div class="upload-icon">📁</div>
+                            <h3>Drop your PDF here or click to upload</h3>
+                            <p>Maximum file size: 10MB</p>
+                            <input type="file" id="fileInput" accept=".pdf" hidden>
+                            <button class="upload-btn">Select PDF File</button>
+                        </div>
+
+                        <div class="metadata-editor" id="metadataEditor" style="display: none;">
+                            <h3>Document Properties</h3>
+                            <div class="form-group">
+                                <label for="title">Title:</label>
+                                <input type="text" id="title" placeholder="Document title">
+                            </div>
+                            <div class="form-group">
+                                <label for="author">Author:</label>
+                                <input type="text" id="author" placeholder="Author name">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject:</label>
+                                <input type="text" id="subject" placeholder="Document subject">
+                            </div>
+                            <div class="form-group">
+                                <label for="keywords">Keywords:</label>
+                                <input type="text" id="keywords" placeholder="Comma separated keywords">
+                            </div>
+                            <div class="form-group">
+                                <label for="creator">Creator:</label>
+                                <input type="text" id="creator" placeholder="Application creator">
+                            </div>
+                            <div class="form-group">
+                                <label for="producer">Producer:</label>
+                                <input type="text" id="producer" placeholder="PDF producer">
+                            </div>
+                            <div class="form-actions">
+                                <button class="reset-btn">Reset</button>
+                                <button class="download-btn">Download Updated PDF</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<section class="deep-dive-card">
+    <div class="card-content">
+        <h2>The Hidden Power of PDF Metadata: Why It Matters</h2>
+        <div class="info-item">
+            <h3>What is PDF Metadata?</h3>
+            <p>Every PDF document contains a hidden layer of information called <strong>metadata</strong>. This data isn't visible in the main content but provides crucial details about the file, such as the document's title, author, subject, creation date, and keywords. Think of it as the document's digital DNA, essential for its identity and function.</p>
+        </div>
+        
+        <div class="info-item">
+            <h3>Why is PDF Metadata Important?</h3>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="pdf-metadata-editor.html" class="active">Metadata Editor</a></li>
-                <li><a href="pdf-merge-divide.html">Merge/Divide</a></li>
-                <li><a href="pdf-compression.html">Compression</a></li>
-                <li><a href="pdf-image-conversion.html">Image Conversion</a></li>
-                <li><a href="pdf-security.html">Security</a></li>
-                <li><a href="pdf-viewer.html">Viewer</a></li>
-                <li><a href="about.html">About</a></li>
+                <li>
+                    <strong>For SEO (Search Engine Optimization)</strong><br>
+                    Search engines like Google not only read the text within a PDF but also its metadata. By accurately filling in the title and keywords, you help search engines understand what your document is about. This can lead to your PDF ranking higher in search results, increasing its visibility and reach.
+                </li>
+                <li>
+                    <strong>For Copyright and Intellectual Property</strong><br>
+                    Metadata is the easiest way to embed ownership information directly into your document. By specifying the author and copyright details, you can protect your intellectual property. This information is a permanent part of the file, making it a reliable way to prove authorship.
+                </li>
+                <li>
+                    <strong>For Efficient Document Management</strong><br>
+                    Properly managed metadata makes it easy to organize and find documents. For example, a company can use metadata to tag files by project name, department, or client, allowing employees to quickly search for and retrieve specific documents from a large archive.
+                </li>
             </ul>
-        </nav>
-        <div class="mobile-menu-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
+        </div>
+
+        <div class="info-item">
+            <h3>What Information is Included in Metadata?</h3>
+            <p>Standard PDF metadata includes:</p>
+            <ul>
+                <li><strong>Title:</strong> The document's official name.</li>
+                <li><strong>Author:</strong> The person or entity who created the document.</li>
+                <li><strong>Subject:</strong> A brief description of the document's content.</li>
+                <li><strong>Keywords:</strong> Important terms that help with searching.</li>
+                <li><strong>Creator:</strong> The application used to create the PDF.</li>
+                <li><strong>Creation Date/Modification Date:</strong> Timestamps indicating when the file was created and last edited.</li>
+            </ul>
+        </div>
+
+        <div class="info-item">
+            <h3>Why You Should Edit Metadata: Common Use Cases</h3>
+            <p>Editing metadata is crucial for a variety of tasks:</p>
+            <ul>
+                <li><strong>Corporate Documents:</strong> Ensure all company reports and presentations are uniformly tagged with the correct author, title, and keywords.</li>
+                <li><strong>Academic Papers:</strong> Students and researchers can use metadata to accurately credit themselves as the author, add relevant keywords for indexing in academic databases, and link to sources.</li>
+                <li><strong>Legal & Medical Files:</strong> Editing metadata can help organize and secure sensitive documents. For example, a law firm might tag files with a case number or client name for easy retrieval.</li>
+            </ul>
+        </div>
+
+        <div class="info-item">
+            <h3>Beware of Hidden Dangers: The Risk of Personal Information Leaks</h3>
+            <p>When you create a PDF, the software often includes hidden metadata like the original author's name, the program used, and even the computer's name. This can lead to an accidental <strong>leak of personal or confidential information</strong> when the file is shared. It's essential to use a metadata editor to remove this sensitive data before publicly sharing documents to ensure your privacy and security.</p>
         </div>
     </div>
-</header>
+</section>
 
-<main>
-    <section class="tool-page">
-        <div class="container">
-            <div class="tool-header">
-                <h1>PDF Metadata Editor</h1>
-                <p>Edit PDF properties, author information, and document details with our easy-to-use tool</p>
-            </div>
+    </main>
 
-            <div class="tool-content">
-                <div class="tool-description">
-                    <h2>What is PDF Metadata?</h2>
-                    <p>PDF metadata contains information about the document such as title, author, subject, keywords, and creation date. Editing metadata helps with document organization, searchability, and copyright information.</p>
-                    
-                    <h2>How to Use This Tool</h2>
-                    <ol>
-                        <li>Upload your PDF file using the button below</li>
-                        <li>View and edit the existing metadata fields</li>
-                        <li>Add or modify title, author, subject, keywords, etc.</li>
-                        <li>Click "Download" to save your updated PDF</li>
-                    </ol>
-                </div>
-
-                <div class="tool-interface">
-                    <div class="upload-area" id="uploadArea">
-                        <div class="upload-icon">📁</div>
-                        <h3>Drop your PDF here or click to upload</h3>
-                        <p>Maximum file size: 10MB</p>
-                        <input type="file" id="fileInput" accept=".pdf" hidden>
-                        <button class="upload-btn">Select PDF File</button>
-                    </div>
-
-                    <div class="metadata-editor" id="metadataEditor" style="display: none;">
-                        <h3>Document Properties</h3>
-                        <div class="form-group">
-                            <label for="title">Title:</label>
-                            <input type="text" id="title" placeholder="Document title">
-                        </div>
-                        <div class="form-group">
-                            <label for="author">Author:</label>
-                            <input type="text" id="author" placeholder="Author name">
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject:</label>
-                            <input type="text" id="subject" placeholder="Document subject">
-                        </div>
-                        <div class="form-group">
-                            <label for="keywords">Keywords:</label>
-                            <input type="text" id="keywords" placeholder="Comma separated keywords">
-                        </div>
-                        <div class="form-group">
-                            <label for="creator">Creator:</label>
-                            <input type="text" id="creator" placeholder="Application creator">
-                        </div>
-                        <div class="form-group">
-                            <label for="producer">Producer:</label>
-                            <input type="text" id="producer" placeholder="PDF producer">
-                        </div>
-                        <div class="form-actions">
-                            <button class="reset-btn">Reset</button>
-                            <button class="download-btn">Download Updated PDF</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- deep-dive-card를 tool-card 내부로 -->
-                <div class="tool-card deep-dive-card">
-                <div class="card-content">
-                    <h2>The Hidden Power of PDF Metadata: Why It Matters</h2>
-                    <div class="info-item">
-                        <h3>What is PDF Metadata?</h3>
-                        <p>Every PDF document contains a hidden layer of information called <strong>metadata</strong>. This data isn't visible in the main content but provides crucial details about the file, such as the document's title, author, subject, creation date, and keywords. Think of it as the document's digital DNA, essential for its identity and function.</p>
-                    </div>
-                    <div class="info-item">
-                        <h3>Why is PDF Metadata Important?</h3>
-                        <ul>
-                            <li><strong>For SEO:</strong> Helps search engines understand your document.</li>
-                            <li><strong>For Copyright:</strong> Embeds ownership information.</li>
-                            <li><strong>For Document Management:</strong> Easy to organize and find files.</li>
-                        </ul>
-                    </div>
-                    <div class="info-item">
-                        <h3>What Information is Included in Metadata?</h3>
-                        <ul>
-                            <li>Title</li>
-                            <li>Author</li>
-                            <li>Subject</li>
-                            <li>Keywords</li>
-                            <li>Creator</li>
-                            <li>Creation/Modification Date</li>
-                        </ul>
-                    </div>
-                    <div class="info-item">
-                        <h3>Why You Should Edit Metadata</h3>
-                        <ul>
-                            <li>Corporate Documents</li>
-                            <li>Academic Papers</li>
-                            <li>Legal & Medical Files</li>
-                        </ul>
-                    </div>
-                    <div class="info-item">
-                        <h3>Beware of Hidden Dangers</h3>
-                        <p>Metadata can contain personal information. Always review and remove sensitive data before sharing PDFs publicly.</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-</main>
-
-<footer style="background:#243447; color:white; padding:30px;">
+    <footer style="background:#243447; color:white; padding:30px;">
   <div class="footer-container">
 
     <!-- Left side: Logo + Title + Description -->
@@ -241,7 +239,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="contact.html">Contact</a></li>
-         <li><a href="blog.html">Blog</a></li>
           
         </ul>
       </div>
@@ -280,6 +277,98 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </style>
 
 </footer>
-<script src="script.js"></script>
+
+<style>
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+.footer-left {
+  flex: 1;
+  min-width: 250px;
+  margin-right: 40px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.footer-logo img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.footer-logo h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.footer-left p {
+  margin: 5px 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.footer-right {
+  flex: 2;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.footer-column {
+  min-width: 150px;
+  margin-bottom: 20px;
+}
+
+.footer-column h4 {
+  margin-bottom: 10px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 6px;
+}
+
+.footer-column ul li a {
+  color: #1da1f2;
+  text-decoration: none;
+}
+
+.footer-column ul li a:hover {
+  text-decoration: underline;
+}
+
+/* 반응형 처리 */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+  }
+  .footer-right {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer-column {
+    margin-bottom: 15px;
+  }
+}
+</style>
+
+
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,3 +1,6 @@
+// script.js
+
+// PDF 처리 라이브러리 로드 필요: pdf-lib은 HTML에서 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.18.0/pdf-lib.min.js"></script>로 로드
 document.addEventListener('DOMContentLoaded', function() {
 
     // ===== 공통: 모바일 메뉴 =====
@@ -61,7 +64,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const uploadArea = document.getElementById('uploadArea');
         const metadataEditor = document.getElementById('metadataEditor');
 
-        function handleMetadataFile(file) {
+        let loadedPdfBytes = null;
+        let pdfDoc = null;
+
+        async function handleMetadataFile(file) {
             if (!file) return;
             if (file.type !== 'application/pdf') {
                 alert('Please upload a PDF file.');
@@ -79,21 +85,34 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p>Processing...</p>
             `;
 
+            loadedPdfBytes = await file.arrayBuffer();
+            pdfDoc = await PDFLib.PDFDocument.load(loadedPdfBytes);
+
+            const titleInput = document.getElementById('title');
+            const authorInput = document.getElementById('author');
+            const subjectInput = document.getElementById('subject');
+            const keywordsInput = document.getElementById('keywords');
+            const creatorInput = document.getElementById('creator');
+            const producerInput = document.getElementById('producer');
+
+            titleInput.value = pdfDoc.getTitle() || '';
+            authorInput.value = pdfDoc.getAuthor() || '';
+            subjectInput.value = pdfDoc.getSubject() || '';
+            keywordsInput.value = pdfDoc.getKeywords() ? pdfDoc.getKeywords().join(', ') : '';
+            creatorInput.value = pdfDoc.getCreator() || '';
+            producerInput.value = pdfDoc.getProducer() || '';
+
             setTimeout(() => {
-                uploadArea.innerHTML = `
-                    <div class="upload-icon">✓</div>
-                    <h3>Processing Complete</h3>
-                    <p>${file.name}</p>
-                `;
                 uploadArea.style.display = 'none';
                 if (metadataEditor) metadataEditor.style.display = 'block';
                 const deepDiveCard = document.querySelector('.deep-dive-card');
                 if (deepDiveCard) deepDiveCard.style.display = 'block';
-            }, 1000);
+            }, 500);
         }
 
         setupUpload('fileInput', '#uploadArea', handleMetadataFile);
 
+        // ===== Reset 버튼 =====
         const resetBtn = document.querySelector('.reset-btn');
         if (resetBtn) resetBtn.addEventListener('click', () => {
             const fileInput = document.getElementById('fileInput');
@@ -102,11 +121,36 @@ document.addEventListener('DOMContentLoaded', function() {
             if (metadataEditor) metadataEditor.style.display = 'none';
             const deepDiveCard = document.querySelector('.deep-dive-card');
             if (deepDiveCard) deepDiveCard.style.display = 'none';
+            loadedPdfBytes = null;
+            pdfDoc = null;
         });
 
+        // ===== Download 버튼 =====
         const downloadBtn = document.querySelector('.download-btn');
-        if (downloadBtn) downloadBtn.addEventListener('click', () => {
-            alert('Your updated PDF would be downloaded in a real application.');
+        if (downloadBtn) downloadBtn.addEventListener('click', async () => {
+            if (!pdfDoc) {
+                alert('No PDF loaded.');
+                return;
+            }
+
+            pdfDoc.setTitle(document.getElementById('title').value);
+            pdfDoc.setAuthor(document.getElementById('author').value);
+            pdfDoc.setSubject(document.getElementById('subject').value);
+            pdfDoc.setKeywords(document.getElementById('keywords').value.split(',').map(k => k.trim()));
+            pdfDoc.setCreator(document.getElementById('creator').value);
+            pdfDoc.setProducer(document.getElementById('producer').value);
+
+            const pdfBytes = await pdfDoc.save();
+
+            const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'updated-' + (document.getElementById('title').value || 'document') + '.pdf';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
         });
     }
 
@@ -114,9 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (pageTitle.includes('viewer')) {
         function renderPDF(file) {
             alert(`${file.name} is ready to view (PDF rendering logic here)`);
-            // PDF.js 등의 실제 렌더링 라이브러리 연결 가능
         }
-
         setupUpload('viewerFileInput', '.tool-interface .upload-area', renderPDF);
     }
 
@@ -124,9 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (pageTitle.includes('security')) {
         function securePDF(file) {
             alert(`${file.name} is ready to secure (Security processing logic here)`);
-            // PDF 보안 처리 라이브러리 연결 가능
         }
-
         setupUpload('securityFileInput', '.tool-interface .upload-area', securePDF);
     }
 
