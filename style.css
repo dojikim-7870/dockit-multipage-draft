@@ -111,7 +111,7 @@ nav a:hover, nav a.active {
  * 카드 섹션 공통 스타일
  */
 .deep-dive-card {
-    max-width: 800px;
+    max-width: 900px;
     margin: 40px auto;
     padding: 30px;
     background-color: #ffffff;
@@ -1213,3 +1213,4 @@ nav ul {
     max-width: 100% !important;
   }
 }
+
