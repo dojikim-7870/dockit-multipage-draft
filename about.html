@@ -218,49 +218,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             text-decoration: none;
         }
 
-.network-block {
-    max-width: 900px;        /* 폭 제한 → 너무 가로로 퍼지지 않도록 */
-    margin: 3rem auto 0;     /* 가운데 정렬 + 위쪽 여백 */
-    padding: 1.8rem;
-    background: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-    border: 1px solid #eee;
+/* --- Network section: 가운데 정렬 및 아이콘 정렬 보정 --- */
+.about-section.network-section {
+  text-align: center; /* 섹션 내부 기본 가운데정렬 */
 }
 
-.network-title {
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
-    color: var(--romantic-rose);
-    font-weight: 600;
-    text-align: center;
+.about-section.network-section h3,
+.about-section.network-section .network-title {
+  text-align: center;          /* 제목 가운데정렬 보장 */
+  display: inline-block;       /* 블록처럼 취급하되 중앙에 놓일 수 있게 */
+  margin: 0 auto 1rem auto;    /* 가운데 정렬을 위한 자동 좌우 마진 */
+  font-weight: 600;
+  line-height: 1.3;
 }
 
-.network-text {
-    color: #555;
-    font-size: 0.97rem;
-    line-height: 1.65;
-    margin-bottom: 1rem;
-    text-align: center;
+/* 아이콘이 float 되어 있으면 가운데 정렬 깨질 수 있으니 제거 */
+.about-section.network-section .icon-color {
+  float: none !important;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0.6rem; /* 필요시 아이콘과 텍스트 사이 간격 */
 }
 
-.network-link {
-    display: block;
-    margin-top: 1.2rem;
-    text-align: center;
-    font-size: 1rem;
-    color: var(--romantic-rose);
-    font-weight: 600;
-    text-decoration: none;
+/* 본문 텍스트 중앙 정렬 보장 */
+.about-section.network-section p,
+.about-section.network-section .network-link {
+  text-align: center;
 }
 
-.network-link:hover {
-    opacity: 0.8;
-}
-.network-title {
-    text-align: center !important;
-    margin-bottom: 1rem;
-}
 
       
         /* Responsive Design */
